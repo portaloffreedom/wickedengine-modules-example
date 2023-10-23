@@ -1,0 +1,21 @@
+# IDE
+.idea/
+*.kdev4
+CMakeLists.txt.user
+.cache/
+
+# CMake build folders
+cmake-build-*/
+build/
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+a.out
+
+# System programs trash
+.directory
+.DS_Store
