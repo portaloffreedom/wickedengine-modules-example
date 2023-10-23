@@ -44,7 +44,7 @@ public:
 
         // Reset camera position:
         wi::scene::TransformComponent transform;
-        transform.Translate(wi::XMFLOAT3(0, 2.f, -4.5f));
+        transform.Translate(wi::XMFLOAT3(10.f, 20.f, -80.f));
         transform.UpdateTransform();
         wi::scene::GetCamera().TransformCamera(transform);
 
@@ -53,7 +53,6 @@ public:
 
         wi::ecs::Entity asteroids = wi::scene::LoadModel("../Assets/AsteroidTestScene.wiscene");
         wi::ecs::Entity spaceship = wi::scene::LoadModel("../Assets/spaceship2.wiscene");
-        //wi::scene::LoadModel("/usr/lib/WickedEngine/Content/models/teapot.wiscene");
         asteroid = wi::scene::GetScene().Entity_FindByName("Asteroid_no_3");
         player_spaceship = wi::scene::GetScene().Entity_FindByName("spaceship");
 
@@ -65,7 +64,7 @@ public:
     void Update(float dt) override
     {
         wi::scene::TransformComponent *asteroid_transform = wi::scene::GetScene().transforms.GetComponent(asteroid);
-        asteroid_transform->Rotate(wi::XMVECTOR {dt * 5.0f, 0, 0});
+        asteroid_transform->Rotate(wi::XMVectorSet(0,dt,0,1));
 
         wi::scene::TransformComponent *player_transform = wi::scene::GetScene().transforms.GetComponent(player_spaceship);
         player_transform->Rotate(wi::XMVectorSet(0,dt,0,1));
